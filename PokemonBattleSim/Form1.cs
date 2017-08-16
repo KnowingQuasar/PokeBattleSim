@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PokemonBattleSim
 {
-    public partial class Form1 : Form
+    public partial class PokeSimWindow : Form
     {
-        public Form1()
+        public PokeSimWindow()
         {
             InitializeComponent();
             InitTitles();
@@ -21,20 +21,26 @@ namespace PokemonBattleSim
         private void InitTitles()
         {
             Font f = new Font(FontFamily.GenericSansSerif, 7.8F, FontStyle.Bold);
-            string[] titles = { "Pokemon", "Item", "Ability", "Move 1", "Move 2", "Move 3", "Move 4", "Nature", "EVs", "IVs" };
-            Color[] titleColors = { Color.Cyan, Color.Lime, Color.MediumPurple, Color.LightGoldenrodYellow, Color.LightGoldenrodYellow,
+            string[] titles = { "Pok" + (char)233 + "mon", "Item", "Ability", "Move 1", "Move 2", "Move 3", "Move 4", "Nature", "EVs", "IVs" };
+            Color[] titleColors = { Color.Cyan, Color.Lime, Color.Thistle, Color.LightGoldenrodYellow, Color.LightGoldenrodYellow,
                 Color.LightGoldenrodYellow, Color.LightGoldenrodYellow, Color.LightPink, Color.PeachPuff, Color.PeachPuff };
             var titleBoxes = ThePanel.Controls;
-
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 10; i++)
             {
-                titleBoxes[i].Margin = new Padding(1);
                 titleBoxes[i].BackColor = titleColors[i];
                 titleBoxes[i].Text = titles[i];
                 titleBoxes[i].Font = f;
                 titleBoxes[i].ForeColor = Color.Black;
                 ((TextBox)titleBoxes[i]).ReadOnly = true;
             }
+        }
+            
+
+        private void addPkmnSlot1_1_Click(object sender, EventArgs e)
+        {
+            SlotDialog slot1 = new SlotDialog();
+            slot1.Show();
+            slot1.TopMost = true;
         }
     }
 }
