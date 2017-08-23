@@ -1,5 +1,8 @@
 ﻿namespace PokemonBattleSim
 {
+    /// <summary>
+    /// A basic effect
+    /// </summary>
     public class Effect
     {
         #region Members

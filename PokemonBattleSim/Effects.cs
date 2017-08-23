@@ -6,7 +6,7 @@
     /// </summary>
     public static class Effects
     {
-        #region Move Effects
+        #region General Effects
         /// <summary>
         /// Effects specific to moves
         /// </summary>
@@ -52,6 +52,11 @@
             /// Copy the target's last move
             /// </summary>
             public static Effect CopyLastMove;
+
+            /// <summary>
+            /// Copy the target's next move
+            /// </summary>
+            public static Effect CopyNextMove;
 
             /// <summary>
             /// Copies the target's stat changes
@@ -125,6 +130,11 @@
             public static Effect GuaranteedCritNextTurn;
 
             /// <summary>
+            /// Halves the target's weight
+            /// </summary>
+            public static Effect HalveWeight;
+
+            /// <summary>
             /// The heavier the user is compared to the target, the more damage it does. Formula is as follows:
             /// r = UserWeight/TargetWeight
             ///
@@ -160,6 +170,11 @@
             /// The move hits all adjacent pokemon
             /// </summary>
             public static Effect HitAllAdjacent;
+
+            /// <summary>
+            /// The move hits all allied pokemon
+            /// </summary>
+            public static Effect HitAllAllies;
 
             /// <summary>
             /// The move hits all foes on the field
@@ -257,7 +272,7 @@
             /// 1 <= r < 2  | 60
             /// r < 1       | 40
             /// </summary>
-            public static Effect MoreSpdMoreDmg;
+            public static Effect ElectroBall;
 
             /// <summary>
             /// If another ally used the move before the user, it will do double damage and execute directly after the ally using Round
@@ -599,6 +614,7 @@
                 ConsumeItem = new Effect("ConsumeItem", "Consumes the target or user's item if possible");
                 CopyAbility = new Effect("Copies the ability of the target", "Copies the ability of the target pokemon");
                 CopyLastMove = new Effect("Copy the opponent's last move", "Copies the opponent's last used move");
+                CopyNextMove = new Effect("CopyNextMove", "Copy the target's next move");
                 CopyStatChanges = new Effect("Copy the target's stat changes", "Copies the target's stat changes, both positive and negative");
                 DealsDmgEqualToLvl = new Effect("DmgEqToLvl", "Deals damage equal to the level of the user");
                 DealsDmg = new Effect("DealsDmg", "Allows the move to deal damage this turn");
@@ -612,18 +628,21 @@
                 EruptionSpout = new Effect("User does more damage the more HP the user has", "The move does more damage the more HP they have at time of execution");
                 ForceAttackFirstNextTurn = new Effect("Target attacks first next turn", "Forces the target to attack first next turn");
                 GuaranteedCritNextTurn = new Effect("Guarantees the next move will crit", "The next move used will result in a critical hit");
+                HalveWeight = new Effect("HalveWgt", "Halves the weight of the target");
                 HeavierMoreDmg = new Effect("HeavierMoreDmg", "The heavier the user is compared to the target, the more damage the move does on execution");
                 HeavierOppMoreDmg = new Effect("HeavierOppMoreDmg", "The heavier the opponent is, the more damage th emove does one execution");
                 HighCrit = new Effect("Raises critical ratio", "Raises crit ratio from 1/16 to 1/8");
                 HitAllAdjacent = new Effect("Hits all adjacent pokemon", "The move will hit all adjacent pokemon including allies");
+                HitAllAllies = new Effect("HitAllAllies", "The move will target all allies on the battlefield at time of execution");
                 HitAllFoes = new Effect("HitAllFoes", "Hits all foes on the battlefield at time of execution");
                 HitsMultipleTimes = new Effect("Hits Multiple Times", "The attack hits 2-5 times.");
                 HitTwiceOneTurn = new Effect("Hits twice in one turn", "The move will strike twice in one turn");
                 IgnoreStatChanges = new Effect("Ignore opponent's stat changes", "The move will ignore all of the opponent's stat changes");
                 IncrementalDamageMux = new Effect("Incremental Damage Multiplier", "The attack's damage is multiplied by 2 for 1-5 turns");
+                
                 LessHPMoreDmg = new Effect("LessHPMoreDmg", "The lower the user's HP on execution, the more damage the move does");
                 MoreHPMoreDmg = new Effect("More powerful when opponent has higher HP", "The higher the opponent's HP, the more damage the move does. Formula: 120 x (Target Curr HP / Target Max HP");
-                MoreSpdMoreDmg = new Effect("MoreSpdMoreDmg", "The higher the speed of the user compared to the opponent, the higher the move's base power");
+                ElectroBall = new Effect("MoreSpdMoreDmg", "The higher the speed of the user compared to the opponent, the higher the move's base power");
                 MoveUsedByAllyThisTurn = new Effect("Extra effects if the same move has been used by an ally this turn", "Doubles power and is used right after an ally uses the same move");
                 PreventAllSleep = new Effect("Prevents pokemon from sleeping", "Prevents all pokemon on the battlefield from sleeping while the move is being used");
                 ReduceHPToUsers = new Effect("Reduces HP of the target to the user's", "The move will reduce the HP of the target to your current HP");
@@ -685,6 +704,11 @@
             {
                 #region Declarations
                 /// <summary>
+                /// Restores up to 1/2 of the target's max HP. If Grassy Terrain is in effect, heals 2/3 of the target's max HP.
+                /// </summary>
+                public static Effect FloralHealing;
+
+                /// <summary>
                 /// Represents a full HP restore
                 /// </summary>
                 public static Effect FullHPRestore;
@@ -720,7 +744,10 @@
                 public static Effect ThreeQuarterDmgInflicted;
 
                 /// <summary>
-                /// Heals varying amounts based on weather
+                /// Heals varying amounts based on weather. 
+                /// No weather - 1/2 total HP
+                /// Harsh Sunlight - 2/3 total HP
+                /// Other weather - 1/4 total HP
                 /// </summary>
                 public static Effect WeatherBasedHPRestore;
                 #endregion
@@ -728,6 +755,7 @@
                 #region Definitions
                 static HPRestore()
                 {
+                    FloralHealing = new Effect("FloralHealing", "Heals up to 1/2 of the target's max HP. If Grassy Terrain is in effect, 2/3 of the target's max HP is healed instead");
                     FullHPRestore = new Effect("FullHPRestore", "Restores HP to full");
                     HalfHPRestore = new Effect("HalfHPRestore", "Restores half of the user's HP");
                     HealHalfDmgInflicted = new Effect("HealHalfDmgDone", "Restores an amount of HP equal to half the damage inflicted by the move");
@@ -876,6 +904,11 @@
             public static Effect ChangeTargetAbilityToInsomnia;
 
             /// <summary>
+            /// Blocks all status moves for the turn. Like all protection moves, acc drops to 50% if used consecutively
+            /// </summary>
+            public static Effect CraftyShield;
+
+            /// <summary>
             /// Cancels out the effect of the opponent's Ability
             /// </summary>
             public static Effect RemoveTargetAbilityEffects;
@@ -941,6 +974,11 @@
             public static Effect FalseSwipe;
 
             /// <summary>
+            /// Prevents all pkmn on the field from switching out or fleeing during their next turn. Does NOT affect Ghost types.
+            /// </summary>
+            public static Effect FairyLock;
+
+            /// <summary>
             /// One of the more complicated effects. Formula is as follows:
             /// N = 48 x CurrHP / MaxHP
             /// Then the value "N" is used to determine the base power:
@@ -996,6 +1034,12 @@
             public static Effect Gravity;
 
             /// <summary>
+            /// The damage of Gyro Ball is calculated as follows:
+            /// Base Power = 25 x (Target's Current Speed / User's Current Speed) with a max of 150 dmg
+            /// </summary>
+            public static Effect GyroBall;
+
+            /// <summary>
             /// This move is very complicated to describe. It only does 60 damage, but its type is math'd out via a complex formula:
             /// 
             /// HP_type = floor[((a + 2b + 4c + 8d + 16e + 32f) x 15) / 63]
@@ -1031,6 +1075,11 @@
             public static Effect Judgement;
 
             /// <summary>
+            /// Blocks all damage moves for the turn. Additionally if King's Shield blocks a contact move, the attackers Attack stat drops 2 stages.
+            /// </summary>
+            public static Effect KingsShield;
+
+            /// <summary>
             /// Knocks the target's item out of its hands. If successful, does 50% more damage. Fails with the following items:
             /// Mega Stones, Plates from Arceus, Griseous Orb from Giratina, and Drives from Genesect
             /// </summary>
@@ -1050,6 +1099,11 @@
             /// Suppresses the effects of held items for 5 turns
             /// </summary>
             public static Effect MagicRoom;
+
+            /// <summary>
+            /// Move returns 1.5 the damage dealt by the foe's last attack. 
+            /// </summary>
+            public static Effect MetalBurst;
 
             /// <summary>
             /// Resets target's evasiveness, removes Dark's Psychic immunity (allows user to hit Dark types with Psychic moves)
@@ -1361,6 +1415,11 @@
                 public static Effect Electric;
 
                 /// <summary>
+                /// Represents the Fairy Terrain
+                /// </summary>
+                public static Effect Fairy;
+
+                /// <summary>
                 /// Represents the Grassy Terrain
                 /// </summary>
                 public static Effect Grass;
@@ -1373,6 +1432,7 @@
                 static Terrain()
                 {
                     Electric = new Effect("EleTerrain", "Increase the power of Electric moves by 50% and prevents GROUNDED pokemon from sleeping for 5 turns");
+                    Fairy = new Effect("FairyTerrain", "Protects all Pokemon from status conditions. It also halves the power of Dragon type moves while in effect");
                     Grass = new Effect("GrassTerrain", "Increase the power of Grass moves by 50% and restores 1/16 maximum HP to all GROUNDED pokemon on the battlefield each turn");
                     Psychic = new Effect("PsychicTerrain", "Prevents priority moves from being used for 5 turns");
                 }
@@ -1393,11 +1453,13 @@
                 Charge = new Effect("Charge", "Doubles the power of the next move if it's an Electric type move");
                 Conv = new Effect("Conv", "Changes user's type to that of it's first listed move");
                 Conv2 = new Effect("Conv2", "User changes type to become resistant to opponent's last used move");
+                CraftyShield = new Effect("CraftyShield", "Protect's user's team from any Status moves used by any opponent.");
                 CutCurrHPBy75Pcnt = new Effect("CutMajHP", "Removes 75% of the target's remaining HP");
                 DealRemainingHP = new Effect("DealRemainHP", "Deals damage equal to the remaining HP of the user");
                 DoublePartySpeed4turns = new Effect("DblPtySpd4Turns", "Doubles the user's party's speed for 4 turns");
                 Disable = new Effect("Disable", "Opponent can't use it's last attack for 1-8 turns");
                 Electrify = new Effect("Electrify", "Changes the type of the target's move to electric if it has not already attacked this turn");
+                FairyLock = new Effect("FairyLock", "Prevents all Pokemon the field from switching out during their next turn.");
                 FalseSwipe = new Effect("FalseSwipe", "Can only deal enough damage to reduce target HP to 1 and cannot K.O.");
                 Flail = new Effect("Flail", "Deals more damage the lower the user's HP");
                 Fling = new Effect("Fling", "Deals damage based on the item held by the user");
@@ -1406,17 +1468,20 @@
                 FreezeDry = new Effect("FreezeDry", "This move is super-effective on water types in addition to its normal type-matchups.");
                 FriendlyMoreDmg = new Effect("MoreFriendMoreDmg", "The friendlier the pokemon is towards the user, the more damage the move does");
                 Gravity = new Effect("Gravity", "Prevents flying moves and the \"raised\" status");
+                GyroBall = new Effect("GyroBall", "The move inflicts more damage the slower the user is compared to the target.");
                 HiddenPower = new Effect("HiddenPwr", "The move's type depends on the IVs of the user");
                 Imprison = new Effect("Imprison", "Target cannot use moves the user also knows");
                 Instruct = new Effect("Instruct", "Ally uses a move instead");
                 IonDeluge = new Effect("Ion Deluge", "Changes Normal type moves to Electric type");
                 Judgement = new Effect("Judgement", "Arceus' exclusive move. Type changes to the the equipped plate's type");
+                KingsShield = new Effect("KingsShield", "Protects the user from damaging moves. Additionally sharply lowers the attacker's Attack stat if hit by a contact move");
                 KnockOff = new Effect("KnockOff", "Knocks the target's item out of its hands, dealing more damage and consuming the item if successful");
                 LastResort = new Effect("LastResort", "Move can only be used after all others have been exhausted");
                 MagicCoat = new Effect("MagicCoat", "Reflects any special move back to the target");
                 MagicRoom = new Effect("MagicRoom", "Suppresses the effects of held items for 5 turns");
                 Magnitude = new Effect("Magnitude", "The base power of Magnitude is one of 7 random values with differing probabilities");
                 MeFirst = new Effect("MeFirst", "Copies target's move to use the following turn with 1.5 the damage");
+                MetalBurst = new Effect("MetalBurst", "Returns 1.5 times the damage deal by the foe's last attack");
                 Metronome = new Effect("Metronome", "Use any move in the game at random");
                 MorningSun = new Effect("MorningSun", "Restores the user's HP based on the weather in the battle");
                 NatGift = new Effect("Natural Gift", "Damage and type vary with the held berry");
@@ -1506,6 +1571,11 @@
         /// If it is the first turn the pokemon appears in
         /// </summary>
         public static Effect ifFirstTurn;
+
+        /// <summary>
+        /// If the target is a grass type
+        /// </summary>
+        public static Effect ifGrassType;
 
         /// <summary>
         /// If the target is in the air (from Bounce or Fly)
@@ -1616,6 +1686,16 @@
         /// If the target is an ally
         /// </summary>
         public static Effect tgtIsAlly;
+
+        /// <summary>
+        /// If the target is readying an attack
+        /// </summary>
+        public static Effect tgtReadyingAttack;
+
+        /// <summary>
+        /// If the target has the ability "Plus" or "Minus"
+        /// </summary>
+        public static Effect hasPlusMinus;
         #endregion
 
         #region Definitions
@@ -1624,8 +1704,10 @@
             AllyDiedThisTurn = new Effect("AllyDied", "If the user has an ally that died the turn the move is used, it has additional/different effects");
             FusionBolt = new Effect("FusionBolt", "If the move Fusion Bolt is used on the same turn by an ally, the move Fusion Flare will double in power");
             FusionFlare = new Effect("FusionFlare", "If the move Fusion Flare is used on the same turn by an ally, the move Fusion Bolt will double in power");
+            hasPlusMinus = new Effect("hasPlusMinus", "If the target has the ability \"Plus\" or \"Minus\", the move will have extra effects.");
             ifAfflicted = new Effect("ifAfflicted", "If the user is afflicted by a status condition, the effects of the move will trigger");
             ifFirstTurn = new Effect("if1stTurn", "If it is the first turn the pokemon has been rotated in (i.e. match starting, switched in, etc), the move's effects will trigger");
+            ifGrassType = new Effect("ifGrassType", "If the target is a Grass type, the move will have extra effects");
             ifInAir = new Effect("ifInAir", "If the target is in air (from Bounce or Fly), the move has extra effects");
             ifMoveMisses = new Effect("ifMoveMisses", "If the move misses, it has extra effects");
             ifNoProtection = new Effect("ifNoProtect", "Used mostly for the move Feint, fires the effects of moves if the moves Detect or Protect have not been used this turn");
@@ -1650,6 +1732,7 @@
             OpponentLessThanHalf = new Effect("OppLessHalf", "If the opponent is at or less than 50% HP, then the move has extra effects");
             SameMoveLastTurn = new Effect("SameMvLastTurn", "If the move to be used was used the turn before, it has additional effects");
             tgtIsAlly = new Effect("tgtAlly", "If the target is an ally, other effects occur");
+            tgtReadyingAttack = new Effect("tgtRdyAtk", "If the target is readying an attack, the move has extra effects");
         }
         #endregion
     }

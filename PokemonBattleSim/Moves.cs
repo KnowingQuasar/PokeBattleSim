@@ -475,7 +475,7 @@
                 BatonPass = new Move("Baton Pass", Type.Normal, 0, -1, 40, 'S', new double[] { 1, 1 }, new Effect[] { Effects.GeneralEffects.Switchout, Effects.GeneralEffects.TransferStatsToSwitchout }, new bool[] { true, false }, ZBatonPass, 0);
                 BellyDrum = new Move("Belly Drum", Type.Normal, 0, -1, 10, 'S', new double[] { 1 }, new Effect[] { Effects.RareEffects.BellyDrum }, new bool[] { true }, ZBellyDrum, 0);
                 Bestow = new Move("Bestow", Type.Normal, 0, -1, 15, 'S', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.TransferItem }, new bool[] { false }, ZBestow, 0);
-                Bide = new Move("Bide", Type.Normal, 0, -1, 10, 'P', new double[] { 1 }, new Effect[] { Effects.RareEffects.Bide }, new bool[] { true }, BreakneckBlitz, 0);
+                Bide = new Move("Bide", Type.Normal, 0, -1, 10, 'P', new double[] { 1 }, new Effect[] { Effects.RareEffects.Bide }, new bool[] { true }, BreakneckBlitz, 1);
                 Bind = new Move("Bind", Type.Normal, 15, 85, 20, 'P', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.Bound }, new bool[] { false }, BreakneckBlitz, 0);
                 Block = new Move("Block", Type.Normal, 0, -1, 5, 'S', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.LegHold }, new bool[] { false }, ZBlock, 0);
                 BodySlam = new Move("Body Slam", Type.Normal, 85, 1, 15, 'P', new double[] { 0.3 }, new Effect[] { Statuses.BaseStatuses.Paralysis }, new bool[] { false }, new ZMove(BreakneckBlitz, 160), 0);
@@ -504,7 +504,7 @@
                 EggBomb = new Move("Egg Bomb", Type.Normal, 100, 0.75, 10, 'P', null, null, null, new ZMove(BreakneckBlitz, 180), 0);
                 Encore = new Move("Encore", Type.Normal, 0, 1, 5, 'S', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.Encore }, new bool[] { true }, ZEncore, 0);
                 Endeavor = new Move("Endeavor", Type.Normal, 0, 1, 5, 'P', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.ReduceHPToUsers }, new bool[] { false }, new ZMove(BreakneckBlitz, 160), 0);
-                Endure = new Move("Endure", Type.Normal, 0, -1, 10, 'S', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.Bracing }, new bool[] { true }, ZEndure, 3);
+                Endure = new Move("Endure", Type.Normal, 0, -1, 10, 'S', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.Bracing }, new bool[] { true }, ZEndure, 4);
                 Entrainment = new Move("Entrainment", Type.Normal, 0, 1, 15, 'S', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.CopyAbility }, new bool[] { false }, ZEntrainment, 0);
                 Explosion = new Move("Explosion", Type.Normal, 250, 1, 5, 'P', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.SelfDestruction }, new bool[] { true }, new ZMove(BreakneckBlitz, 200), 0);
                 ExtremeSpeed = new Move("Extreme Speed", Type.Normal, 80, 1, 5, 'P', null, null, null, new ZMove(BreakneckBlitz, 160), 2);
@@ -515,7 +515,7 @@
                 Flail = new Move("Flail", Type.Normal, 0, 1, 15, 'P', new double[] { 1 }, new Effect[] { Effects.RareEffects.Flail }, new bool[] { true }, new ZMove(BreakneckBlitz, 160), 0);
                 Flash = new Move("Flash", Type.Normal, 0, 1, 20, 'S', new double[] { 1 }, new Effect[] { StatChanges.NegativeStatChanges.AccDwn1 }, new bool[] { false }, ZFlash, 0);
                 FocusEnergy = new Move("Focus Energy", Type.Normal, 0, -1, 30, 'S', new double[] { 1 }, new Effect[] { StatChanges.PositiveStatChanges.CritUp2 }, new bool[] { true }, ZFocusEnergy, 0);
-                FollowMe = new Move("Follow Me", Type.Normal, 0, -1, 20, 'S', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.CenterofAttention }, new bool[] { true }, ZFollowMe, 3);
+                FollowMe = new Move("Follow Me", Type.Normal, 0, -1, 20, 'S', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.CenterofAttention }, new bool[] { true }, ZFollowMe, 2);
                 Foresight = new Move("Foresight", Type.Normal, 0, -1, 40, 'S', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.Identified }, new bool[] { false }, ZForesight, 0);
                 Frustration = new Move("Frustration", Type.Normal, 0, 1, 20, 'P', new double[] { 1 }, new Effect[] { Effects.RareEffects.UnfriendlyMoreDamage }, new bool[] { true }, new ZMove(BreakneckBlitz, 160), 0);
                 FuryAttack = new Move("Fury Attack", Type.Normal, 15, 0.85, 20, 'P', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.HitsMultipleTimes }, new bool[] { false }, BreakneckBlitz, 0);
@@ -570,7 +570,7 @@
                 PlayNice = new Move("Play Nice", Type.Normal, 0, -1, 20, 'S', new double[] { 1 }, new Effect[] { StatChanges.NegativeStatChanges.AtkDwn1 }, new bool[] { false }, ZPlayNice, 0);
                 Pound = new Move("Pound", Type.Normal, 40, 1, 35, 'P', null, null, null, BreakneckBlitz, 0);
                 Present = new Move("Present", Type.Normal, 0, 0.9, 15, 'P', new double[] { 1 }, new Effect[] { Effects.RareEffects.Present }, new bool[] { false }, BreakneckBlitz, 0);
-                Protect = new Move("Protect", Type.Normal, 0, -1, 10, 'S', new double[] { 1, 1, 1 }, new Effect[] { Statuses.VolatileStatuses.Protection, Flags.SameMoveLastTurn, Effects.GeneralEffects.DecreaseAcc50Pcnt }, new bool[] { true, true, true }, ZProtect, 3);
+                Protect = new Move("Protect", Type.Normal, 0, -1, 10, 'S', new double[] { 1, 1, 1 }, new Effect[] { Statuses.VolatileStatuses.Protection, Flags.SameMoveLastTurn, Effects.GeneralEffects.DecreaseAcc50Pcnt }, new bool[] { true, true, true }, ZProtect, 4);
                 PsychUp = new Move("Psych Up", Type.Normal, 0, -1, 10, 'S', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.CopyStatChanges }, new bool[] { false }, ZPsychUp, 0);
                 QuickAttack = new Move("Quick Attack", Type.Normal, 40, 1, 30, 'P', null, null, null, BreakneckBlitz, 1);
                 Rage = new Move("Rage", Type.Normal, 20, 1, 20, 'P', new double[] { 1, 1 }, new Effect[] { Flags.isHitBeforeNextMove, StatChanges.PositiveStatChanges.AtkUp1 }, new bool[] { true, true }, BreakneckBlitz, 0);
@@ -613,7 +613,7 @@
                 SpikeCannon = new Move("Spike Cannon", Type.Normal, 20, 1, 15, 'P', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.HitsMultipleTimes }, new bool[] { false }, BreakneckBlitz, 0);
                 SpitUp = new Move("Spit Up", Type.Normal, 0, 1, 10, 'M', new double[] { 1 }, new Effect[] { Effects.RareEffects.SpitUp }, new bool[] { true }, BreakneckBlitz, 0);
                 Splash = new Move("Splash", Type.Normal, 0, -1, 40, 'S', null, null, null, ZSplash, 0);
-                Spotlight = new Move("Spotlight", Type.Normal, 0, -1, 15, 'S', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.CenterofAttention }, new bool[] { false }, ZSpotlight, 0);
+                Spotlight = new Move("Spotlight", Type.Normal, 0, -1, 15, 'S', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.CenterofAttention }, new bool[] { false }, ZSpotlight, 3);
                 Stockpile = new Move("Stockpile", Type.Normal, 0, -1, 20, 'S', new double[] { 1 }, new Effect[] { Effects.RareEffects.Stockpile }, new bool[] { true }, ZStockpile, 0);
                 Stomp = new Move("Stomp", Type.Normal, 65, 1, 20, 'P', new double[] { 0.3 }, new Effect[] { Statuses.VolatileStatuses.Flinch }, new bool[] { false }, new ZMove(BreakneckBlitz, 120), 0);
                 Strength = new Move("Strength", Type.Normal, 80, 1, 15, 'P', null, null, null, new ZMove(BreakneckBlitz, 160), 0);
@@ -837,7 +837,7 @@
                 WaterGun = new Move("Water Gun", Type.Water, 40, 1, 25, 'M', null, null, null, HydroVortex, 0);
                 WaterPledge = new Move("Water Pledge", Type.Water, 80, 100, 10, 'M', new double[] { 1 }, new Effect[] { Effects.RareEffects.Pledges }, new bool[] { false }, new ZMove(HydroVortex, 160), 0);
                 WaterPulse = new Move("Water Pulse", Type.Water, 60, 1, 20, 'M', new double[] { 0.2 }, new Effect[] { Statuses.VolatileStatuses.Confused }, new bool[] { false }, new ZMove(HydroVortex, 120), 0);
-                WaterShruiken = new Move("Water Shruiken", Type.Water, 15, 1, 20, 'M', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.HitsMultipleTimes }, new bool[] { false }, HydroVortex, 0);
+                WaterShruiken = new Move("Water Shruiken", Type.Water, 15, 1, 20, 'M', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.HitsMultipleTimes }, new bool[] { false }, HydroVortex, 1);
                 WaterSport = new Move("Water Sport", Type.Water, 0, -1, 15, 'S', new double[] { 1, 1 }, new Effect[] { Effects.GeneralEffects.Strengthen.Water, Effects.GeneralEffects.Weaken.Fire }, new bool[] { false, false }, ZWaterSport, 0);
                 WaterSpout = new Move("Water Spout", Type.Water, 0, 1, 5, 'M', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.EruptionSpout }, new bool[] { false }, new ZMove(HydroVortex, 200), 0);
                 Waterfall = new Move("Waterfall", Type.Water, 80, 1, 15, 'P', new double[] { 0.2 }, new Effect[] { Statuses.VolatileStatuses.Flinch }, new bool[] { false }, new ZMove(HydroVortex, 160), 0);
@@ -921,12 +921,12 @@
                 EerieImpulse = new Move("Eerie Impulse", Type.Electric, 0, 1, 15, 'S', new double[] { 1 }, new Effect[] { StatChanges.NegativeStatChanges.SpAtkDwn2 }, new bool[] { false }, ZEerieImpulse, 0);
                 ElectricTerrain = new Move("Electric Terrain", Type.Electric, 0, -1, 10, 'S', new double[] { 1 }, new Effect[] { Effects.RareEffects.Terrain.Electric }, new bool[] { true }, ZElectricTerrain, 0);
                 Electrify = new Move("Electrify", Type.Electric, 0, -1, 20, 'S', new double[] { 1 }, new Effect[] { Effects.RareEffects.Electrify }, new bool[] { false }, ZElectrify, 0);
-                ElectroBall = new Move("Electro Ball", Type.Electric, -1, 1, 10, 'M', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.MoreSpdMoreDmg }, new bool[] { false }, new ZMove(GigavoltHavoc, 160), 0);
+                ElectroBall = new Move("Electro Ball", Type.Electric, -1, 1, 10, 'M', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.ElectroBall }, new bool[] { false }, new ZMove(GigavoltHavoc, 160), 0);
                 Electroweb = new Move("Electroweb", Type.Electric, 55, 0.95, 15, 'M', new double[] { 1 }, new Effect[] { StatChanges.NegativeStatChanges.SpdDwn1 }, new bool[] { false }, GigavoltHavoc, 0);
                 FusionBolt = new Move("Fusion Bolt", Type.Electric, 100, 1, 5, 'P', new double[] { 1, 1 }, new Effect[] { Flags.FusionFlare, Effects.GeneralEffects.DoublePower }, new bool[] { true, true }, new ZMove(GigavoltHavoc, 180), 0);
-                IonDeluge = new Move("Ion Deluge", Type.Electric, 0, -1, 25, 'S', new double[] { 1 }, new Effect[] { Effects.RareEffects.IonDeluge }, new bool[] { true }, ZIonDeluge, 0);
-                MagnetRise = new Move("Magnet Rise", Type.Electric, 0, -1, 10, 'S', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.Raised }, new bool[] { true }, ZMagnetRise, 0);
-                MagneticFlux = new Move("Magnetic Flux", Type.Electric, 0, -1, 20, 'S', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.MagneticLevitation }, new bool[] { true }, ZMagneticFlux, 0);
+                IonDeluge = new Move("Ion Deluge", Type.Electric, 0, -1, 25, 'S', new double[] { 1 }, new Effect[] { Effects.RareEffects.IonDeluge }, new bool[] { true }, ZIonDeluge, 1);
+                MagnetRise = new Move("Magnet Rise", Type.Electric, 0, -1, 10, 'S', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.MagneticLevitation }, new bool[] { true }, ZMagnetRise, 0);
+                MagneticFlux = new Move("Magnetic Flux", Type.Electric, 0, -1, 20, 'S', new double[] { 1, 1, 1, 1 }, new Effect[] { Effects.GeneralEffects.HitAllAllies, Flags.hasPlusMinus, StatChanges.PositiveStatChanges.DefUp1, StatChanges.PositiveStatChanges.SpDefUp1 }, new bool[] { true, false, false, false }, ZMagneticFlux, 0);
                 Nuzzle = new Move("Nuzzle", Type.Electric, 20, 1, 20, 'P', new double[] { 1 }, new Effect[] { Statuses.BaseStatuses.Paralysis }, new bool[] { false }, GigavoltHavoc, 0);
                 ParabolicCharge = new Move("Parabolic Charge", Type.Electric, 65, 1, 20, 'M', new double[] { 1 }, new Effect[] { Effects.HealingEffects.HPRestore.HealHalfDmgInflicted }, new bool[] { true }, new ZMove(GigavoltHavoc, 120), 0);
                 ShockWave = new Move("Shock Wave", Type.Electric, 60, -1, 20, 'M', null, null, null, new ZMove(GigavoltHavoc, 120), 0);
@@ -1140,7 +1140,7 @@
                 #region Ice Constructor
                 AuroraBeam = new Move("Aurora Beam", Type.Ice, 65, 1, 20, 'M', new double[] { 0.1 }, new Effect[] { StatChanges.NegativeStatChanges.AtkDwn1 }, new bool[] { false }, SubzeroSlammer, 0);
                 AuroraVeil = new Move("Aurora Veil", Type.Ice, 0, 1, 20, 'S', new double[] { 1, 1 }, new Effect[] { Effects.GeneralEffects.AttackScreen, Effects.GeneralEffects.SpecialScreen }, new bool[] { true, true }, ZAuroraVeil, 0);
-                Avalanche = new Move("Avalanche", Type.Ice, 60, 1, 10, 'P', new double[] { 1, 1 }, new Effect[] { Flags.ifTakenDmgThisTurn, Effects.GeneralEffects.DoublePower }, new bool[] { true }, SubzeroSlammer, 0);
+                Avalanche = new Move("Avalanche", Type.Ice, 60, 1, 10, 'P', new double[] { 1, 1 }, new Effect[] { Flags.ifTakenDmgThisTurn, Effects.GeneralEffects.DoublePower }, new bool[] { true }, SubzeroSlammer, -4);
                 Blizzard = new Move("Blizzard", Type.Ice, 110, 0.7, 5, 'M', new double[] { 0.1 }, new Effect[] { Statuses.BaseStatuses.Freeze }, new bool[] { false }, new ZMove(SubzeroSlammer, 185), 0);
                 FreezeShock = new Move("Freeze Shock", Type.Ice, 140, 0.9, 5, 'P', new double[] { 0.3 }, new Effect[] { Statuses.BaseStatuses.Paralysis }, new bool[] { false }, new ZMove(SubzeroSlammer, 200), 0);
                 FreezeDry = new Move("Freeze-Dry", Type.Ice, 70, 1, 20, 'M', new double[] { 0.1, 1 }, new Effect[] { Statuses.BaseStatuses.Freeze, Effects.RareEffects.FreezeDry }, new bool[] { false, true }, new ZMove(SubzeroSlammer, 140), 0);
@@ -1242,11 +1242,11 @@
                 AuraSphere = new Move("Aura Sphere", Type.Fighting, 80, -1, 20, 'M', null, null, null, new ZMove(AllOutPummeling, 160), 0);
                 BrickBreak = new Move("Brick Break", Type.Fighting, 75, 1, 15, 'P', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.BreakScreens }, new bool[] { false }, new ZMove(AllOutPummeling, 140), 0);
                 BulkUp = new Move("Bulk Up", Type.Fighting, 0, -1, 20, 'P', new double[] { 1, 1 }, new Effect[] { StatChanges.PositiveStatChanges.AtkUp1, StatChanges.PositiveStatChanges.DefUp1 }, new bool[] { true, true }, ZBulkUp, 0);
-                CircleThrow = new Move("Circle Throw", Type.Fighting, 60, 0.9, 10, 'P', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.Switchout }, new bool[] { false }, new ZMove(AllOutPummeling, 120), 0);
+                CircleThrow = new Move("Circle Throw", Type.Fighting, 60, 0.9, 10, 'P', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.Switchout }, new bool[] { false }, new ZMove(AllOutPummeling, 120), -6);
                 CloseCombat = new Move("Close Combat", Type.Fighting, 120, 1, 5, 'P', new double[] { 1, 1 }, new Effect[] { StatChanges.NegativeStatChanges.DefDwn1, StatChanges.NegativeStatChanges.SpDefDwn1 }, new bool[] { true, true }, new ZMove(AllOutPummeling, 190), 0);
                 Counter = new Move("Counter", Type.Fighting, -1, 1, 20, 'P', new double[] { 1, 1 }, new Effect[] { Flags.isHitByPhysMv, Effects.GeneralEffects.CopyLastMove, Effects.GeneralEffects.DoublePower }, new bool[] { true, false, true }, AllOutPummeling, -5);
                 CrossChop = new Move("Cross Chop", Type.Fighting, 100, 0.8, 5, 'P', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.HighCrit }, new bool[] { true }, new ZMove(AllOutPummeling, 180), 0);
-                Detect = new Move("Detect", Type.Fighting, 0, -1, 5, 'S', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.Protection }, new bool[] { true }, ZDetect, 3);
+                Detect = new Move("Detect", Type.Fighting, 0, -1, 5, 'S', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.Protection }, new bool[] { true }, ZDetect, 4);
                 DoubleKick = new Move("DoubleKick", Type.Fighting, 30, 1, 30, 'P', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.HitTwiceOneTurn }, new bool[] { false }, AllOutPummeling, 0);
                 DynamicPunch = new Move("Dynamic Punch", Type.Fighting, 100, 0.5, 5, 'P', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.Confused }, new bool[] { false }, new ZMove(AllOutPummeling, 180), 0);
                 FinalGambit = new Move("Final Gambit", Type.Fighting, -1, 1, 5, 'M', new double[] { 1, 1 }, new Effect[] { Effects.RareEffects.DealRemainingHP, Effects.GeneralEffects.SelfDestruction }, new bool[] { false, true }, new ZMove(AllOutPummeling, 180), 0);
@@ -1711,7 +1711,7 @@
 
                 #region Psychic Constructor
                 Agility = new Move("Agility", Type.Psychic, 0, -1, 30, 'S', new double[] { 1 }, new Effect[] { StatChanges.PositiveStatChanges.SpdUp2 }, new bool[] { true }, ZAgility, 0);
-                AllySwitch = new Move("Ally Switch", Type.Psychic, 0, -1, 15, 'S', new double[] { 1 }, new Effect[] { Effects.RareEffects.SwitchPlacesAlly }, new bool[] { true }, ZAllySwitch, 0);
+                AllySwitch = new Move("Ally Switch", Type.Psychic, 0, -1, 15, 'S', new double[] { 1 }, new Effect[] { Effects.RareEffects.SwitchPlacesAlly }, new bool[] { true }, ZAllySwitch, 2);
                 Amnesia = new Move("Amnesia", Type.Psychic, 0, -1, 20, 'S', new double[] { 1 }, new Effect[] { StatChanges.PositiveStatChanges.SpDefUp2 }, new bool[] { true }, ZAmnesia, 0);
                 Barrier = new Move("Barrier", Type.Psychic, 0, -1, 20, 'S', new double[] { 1 }, new Effect[] { StatChanges.PositiveStatChanges.DefUp2 }, new bool[] { true }, ZBarrier, 0);
                 CalmMind = new Move("Calm Mind", Type.Psychic, 0, -1, 20, 'S', new double[] { 1, 1 }, new Effect[] { StatChanges.PositiveStatChanges.SpAtkUp1, StatChanges.PositiveStatChanges.SpDefUp1 }, new bool[] { true, true }, ZCalmMind, 0);
@@ -1736,11 +1736,11 @@
                 LightScreen = new Move("Light Screen", Type.Psychic, 0, -1, 30, 'S', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.SpecialScreen }, new bool[] { true }, ZLightScreen, 0);
                 LunarDance = new Move("Lunar Dance", Type.Psychic, 0, -1, 10, 'S', new double[] { 1, 1, 1 }, new Effect[] { Effects.GeneralEffects.SelfDestruction, Effects.HealingEffects.HPRestore.SwitchInFullHeal }, new bool[] { true, true }, UniqueZMoves.NO_EFFECT, 0);
                 LusterPurge = new Move("Luster Purge", Type.Psychic, 70, 1, 5, 'M', new double[] { 0.5 }, new Effect[] { StatChanges.NegativeStatChanges.SpDefDwn1 }, new bool[] { false }, new ZMove(ShatteredPsyche, 140), 0);
-                MagicCoat = new Move("Magic Coat", Type.Psychic, 0, -1, 15, 'S', new double[] { 1 }, new Effect[] { Effects.RareEffects.MagicCoat }, new bool[] { true }, ZMagicCoat, 0);
+                MagicCoat = new Move("Magic Coat", Type.Psychic, 0, -1, 15, 'S', new double[] { 1 }, new Effect[] { Effects.RareEffects.MagicCoat }, new bool[] { true }, ZMagicCoat, 4);
                 MagicRoom = new Move("Magic Room", Type.Psychic, 0, -1, 10, 'S', new double[] { 1 }, new Effect[] { Effects.RareEffects.MagicRoom }, new bool[] { false }, ZMagicRoom, 0);
                 Meditate = new Move("Meditate", Type.Psychic, 0, -1, 40, 'S', new double[] { 1 }, new Effect[] { StatChanges.PositiveStatChanges.AtkUp1 }, new bool[] { true }, ZMeditate, 0);
                 MiracleEye = new Move("Miracle Eye", Type.Psychic, 0, -1, 40, 'S', new double[] { 1 }, new Effect[] { Effects.RareEffects.MiracleEye }, new bool[] { false }, ZMiracleEye, 0);
-                MirrorCoat = new Move("Mirror Coat", Type.Psychic, 0, 1, 20, 'M', new double[] { 1, 1, 1 }, new Effect[] { Flags.isHitBySpMv, Effects.GeneralEffects.CopyLastMove, Effects.GeneralEffects.DoublePower}, new bool[] { true, false, true}, ShatteredPsyche, 0);
+                MirrorCoat = new Move("Mirror Coat", Type.Psychic, 0, 1, 20, 'M', new double[] { 1, 1, 1 }, new Effect[] { Flags.isHitBySpMv, Effects.GeneralEffects.CopyLastMove, Effects.GeneralEffects.DoublePower}, new bool[] { true, false, true}, ShatteredPsyche, -5);
                 MistBall = new Move("Mist Ball", Type.Psychic, 70, 1, 5, 'M', new double[] { 0.5 }, new Effect[] { StatChanges.NegativeStatChanges.SpAtkDwn1 }, new bool[] { false }, new ZMove(ShatteredPsyche, 140), 0);
                 PowerSplit = new Move("Power Split", Type.Psychic, 0, -1, 10, 'S', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.Split.Power }, new bool[] { false }, ZPowerSplit, 0);
                 PowerTrick = new Move("Power Trick", Type.Psychic, 0, -1, 10, 'S', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.Swap.AtkDef }, new bool[] { true }, ZPowerTrick, 0);
@@ -1763,7 +1763,7 @@
                 Telekinesis = new Move("Telekinesis", Type.Psychic, 0, -1, 15, 'S', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.Telekinesis }, new bool[] { true }, ZTelekinesis, 0);
                 Teleport = new Move("Teleport", Type.Psychic, 0, -1, 20, 'S', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.Switchout }, new bool[] { true }, ZTeleport, 0);
                 Trick = new Move("Trick", Type.Psychic, 0, 1, 10, 'S', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.Swap.Item }, new bool[] { false }, ZTrick, 0);
-                TrickRoom = new Move("Trick Room", Type.Psychic, 0, -1, 10, 'S', new double[] { 1 }, new Effect[] { Effects.RareEffects.TrickRoom }, new bool[] { true }, ZTrickRoom, 0);
+                TrickRoom = new Move("Trick Room", Type.Psychic, 0, -1, 10, 'S', new double[] { 1 }, new Effect[] { Effects.RareEffects.TrickRoom }, new bool[] { true }, ZTrickRoom, -7);
                 WonderRoom = new Move("Wonder Room", Type.Psychic, 0, -1, 10, 'S', new double[] { 1 }, new Effect[] { Effects.RareEffects.WonderRoom }, new bool[] { false }, ZWonderRoom, 0);
                 ZenHeadbutt = new Move("Zen Headbutt", Type.Psychic, 80, 0.9, 15, 'P', new double[] { 0.2 }, new Effect[] { Statuses.VolatileStatuses.Flinch }, new bool[] { false }, new ZMove(ShatteredPsyche, 160), 0);
                 #endregion
@@ -1833,7 +1833,7 @@
                 SmackDown = new Move("Smack Down", Type.Rock, 50, 1, 15, 'P', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.Grounded }, new bool[] { false }, ContinentalCrush, 0);
                 StealthRock = new Move("Stealth Rock", Type.Rock, 0, -1, 20, 'S', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.SetEntryHazards.StealthRock }, new bool[] { false }, ZStealthRock, 0);
                 StoneEdge = new Move("Stone Edge", Type.Rock, 100, 0.8, 5, 'P', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.HighCrit }, new bool[] { true }, new ZMove(ContinentalCrush, 180), 0);
-                WideGuard = new Move("Wide Guard", Type.Rock, 0, -1, 10, 'S', new double[] { 1 }, new Effect[] { Effects.RareEffects.WideGuard }, new bool[] { true }, ZWideGuard, 0);
+                WideGuard = new Move("Wide Guard", Type.Rock, 0, -1, 10, 'S', new double[] { 1 }, new Effect[] { Effects.RareEffects.WideGuard }, new bool[] { true }, ZWideGuard, 3);
                 #endregion
             }
             #endregion
@@ -1912,7 +1912,7 @@
                 BugBuzz = new Move("Bug Buzz", Type.Bug, 90, 1, 10, 'M', new double[] { 0.1 }, new Effect[] { StatChanges.NegativeStatChanges.SpDefDwn1 }, new bool[] { false }, new ZMove(SavageSpinOut, 175), 0);
                 DefendOrder = new Move("Defend Order", Type.Bug, 0, -1, 10, 'S', new double[] { 1, 1 }, new Effect[] { StatChanges.PositiveStatChanges.DefUp1, StatChanges.PositiveStatChanges.SpDefUp1 }, new bool[] { true, true }, ZDefendOrder, 0);
                 FellStinger = new Move("Fell Stinger", Type.Bug, 50, 1, 25, 'P', new double[] { 1, 1 }, new Effect[] { Flags.ifTgtFaints, StatChanges.PositiveStatChanges.AtkUp2 }, new bool[] { false, true }, SavageSpinOut, 0);
-                FirstImpression = new Move("First Impression", Type.Bug, 90, 1, 10, 'P', new double[] { 1, 1, 1 }, new Effect[] { Effects.GeneralEffects.DealsNoDmg, Flags.ifFirstTurn, Effects.GeneralEffects.DealsDmg }, new bool[] { true, true, true }, new ZMove(SavageSpinOut, 175), 0);
+                FirstImpression = new Move("First Impression", Type.Bug, 90, 1, 10, 'P', new double[] { 1, 1, 1 }, new Effect[] { Effects.GeneralEffects.DealsNoDmg, Flags.ifFirstTurn, Effects.GeneralEffects.DealsDmg }, new bool[] { true, true, true }, new ZMove(SavageSpinOut, 175), 2);
                 FuryCutter = new Move("Fury Cutter", Type.Bug, 40, 0.95, 20, 'P', new double[] { 1 }, new Effect[] { Effects.RareEffects.FuryCutter }, new bool[] { true }, SavageSpinOut, 0);
                 HealOrder = new Move("Heal Order", Type.Bug, 0, -1, 10, 'S', new double[] { 1 }, new Effect[] { Effects.HealingEffects.HPRestore.HalfHPRestore }, new bool[] { true }, ZHealOrder, 0);
                 Infestation = new Move("Infestation", Type.Bug, 20, 1, 20, 'M', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.Bound }, new bool[] { false }, SavageSpinOut, 0);
@@ -1988,7 +1988,7 @@
                 DragonPulse = new Move("Dragon Pulse", Type.Dragon, 85, 1, 10, 'M', null, null, null, new ZMove(DevastatingDrake, 160), 0);
                 DragonRage = new Move("Dragon Rage", Type.Dragon, 40, 1, 10, 'M', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.DoBPInDmg }, new bool[] { false }, DevastatingDrake, 0);
                 DragonRush = new Move("Dragon Rush", Type.Dragon, 100, 0.75, 10, 'P', new double[] { 0.2 }, new Effect[] { Statuses.VolatileStatuses.Flinch }, new bool[] { false }, new ZMove(DevastatingDrake, 180), 0);
-                DragonTail = new Move("Dragon Tail", Type.Dragon, 60, 0.9, 10, 'P', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.Switchout }, new bool[] { false }, new ZMove(DevastatingDrake, 120), 0);
+                DragonTail = new Move("Dragon Tail", Type.Dragon, 60, 0.9, 10, 'P', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.Switchout }, new bool[] { false }, new ZMove(DevastatingDrake, 120), -6);
                 DualChop = new Move("Dual Chop", Type.Dragon, 40, 0.9, 15, 'P', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.HitTwiceOneTurn }, new bool[] { true }, DevastatingDrake, 0);
                 Outrage = new Move("Outrage", Type.Dragon, 120, 1, 10, 'P', new double[] { 1 }, new Effect[] { Effects.RareEffects.Thrash }, new bool[] { true }, new ZMove(DevastatingDrake, 190), 0);
                 RoarOfTime = new Move("Roar of Time", Type.Dragon, 150, 0.9, 5, 'M', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.Recharging }, new bool[] { true }, new ZMove(DevastatingDrake, 200), 0);
@@ -2149,6 +2149,7 @@
             #region Dark Constructor
             static Dark()
             {
+                #region Z-Dark Constructor
                 BlackHoleEclipse = new ZMove("Black Hole Eclipse", 100, null, null);
                 ZDarkVoid = new ZMove("Z-Dark Void", 0, new Effect[] { Effects.HealingEffects.StatAlterations.ResetStatDrops }, new bool[] { true });
                 ZEmbargo = new ZMove("Z-Embargo", 0, new Effect[] { StatChanges.PositiveStatChanges.SpAtkUp1 }, new bool[] { true });
@@ -2164,7 +2165,9 @@
                 ZTaunt = new ZMove("Z-Taunt", 0, new Effect[] { StatChanges.PositiveStatChanges.AtkUp1 }, new bool[] { true });
                 ZTopsyTurvy = new ZMove("Z-Topsy-Turvy", 0, new Effect[] { StatChanges.PositiveStatChanges.AtkUp1 }, new bool[] { true });
                 ZTorment = new ZMove("Z-Torment", 0, new Effect[] { StatChanges.PositiveStatChanges.DefUp1 }, new bool[] { true });
+                #endregion
 
+                #region Dark Constructor
                 Assurance = new Move("Assurance", Type.Dark, 60, 1, 10, 'P', new double[] { 1 }, new Effect[] { Flags.ifTakenDmgThisTurn, Effects.GeneralEffects.DoublePower }, new bool[] { false, true }, new ZMove(BlackHoleEclipse, 120), 0);
                 BeatUp = new Move("Beat Up", Type.Dark, -1, 1, 30, 'P', new double[] { 1 }, new Effect[] { Effects.RareEffects.BeatUp }, new bool[] { false }, BlackHoleEclipse, 0);
                 Bite = new Move("Bite", Type.Dark, 60, 1, 25, 'P', new double[] { 0.3 }, new Effect[] { Statuses.VolatileStatuses.Flinch }, new bool[] { false }, new ZMove(BlackHoleEclipse, 120), 0);
@@ -2193,14 +2196,189 @@
                 Pursuit = new Move("Pursuit", Type.Dark, 40, 1, 20, 'P', new double[] { 1 }, new Effect[] { Effects.RareEffects.Pursuit }, new bool[] { false }, BlackHoleEclipse, 0);
                 Quash = new Move("Quash", Type.Dark, 0, 1, 15, 'S', new double[] { 1 }, new Effect[] { Effects.RareEffects.TgtMvLastThisTurn }, new bool[] { false }, ZQuash, 0);
                 Snarl = new Move("Snarl", Type.Dark, 55, 0.95, 15, 'M', new double[] { 1 }, new Effect[] { StatChanges.NegativeStatChanges.SpAtkDwn1 }, new bool[] { false }, BlackHoleEclipse, 0);
-                Snatch = new Move("Snatch", Type.Dark, 0, -1, 10, 'S', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.CopyNextMove }, new bool[] { false }, ZSnatch, 0);
-                SuckerPunch = new Move("Sucker Punch", Type.Dark, 70, 1, 5, 'P', new double[] { 1, 1 }, new Effect[] { Effects.GeneralEffects.DealsNoDmg, Flags.tgtReadyingAttack, Effects.GeneralEffects.DealsDmg }, new bool[] { true, false, true }, new ZMove(BlackHoleEclipse, 140), 0);
+                Snatch = new Move("Snatch", Type.Dark, 0, -1, 10, 'S', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.CopyNextMove }, new bool[] { false }, ZSnatch, 4);
+                SuckerPunch = new Move("Sucker Punch", Type.Dark, 70, 1, 5, 'P', new double[] { 1, 1 }, new Effect[] { Effects.GeneralEffects.DealsNoDmg, Flags.tgtReadyingAttack, Effects.GeneralEffects.DealsDmg }, new bool[] { true, false, true }, new ZMove(BlackHoleEclipse, 140), 1);
                 Switcheroo = new Move("Switcheroo", Type.Dark, 0, 1, 15, 'S', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.Swap.Item }, new bool[] { false }, ZSwitcheroo, 0);
                 Taunt = new Move("Taunt", Type.Dark, 0, 1, 20, 'S', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.Taunt }, new bool[] { false }, ZTaunt, 0);
                 Thief = new Move("Thief", Type.Dark, 40, 1, 10, 'P', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.TransferItem }, new bool[] { false }, new ZMove(BlackHoleEclipse, 120), 0);
                 ThroatChop = new Move("Throat Chop", Type.Dark, 80, 1, 15, 'P', new double[] { 1 }, new Effect[] { Effects.RareEffects.ThroatChop }, new bool[] { false }, new ZMove(BlackHoleEclipse, 160), 0);
                 TopsyTurvy = new Move("Topsy-Turvy", Type.Dark, 0, 1, 20, 'S', new double[] { 1 }, new Effect[] { Effects.RareEffects.ReverseStatChanges }, new bool[] { false }, ZTopsyTurvy, 0);
                 Torment = new Move("Torment", Type.Dark, 0, 1, 15, 'S', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.Torment }, new bool[] { false }, ZTorment, 0);
+                #endregion
+            }
+            #endregion
+        }
+        #endregion
+
+        #region Steel
+        /// <summary>
+        /// All Steel moves
+        /// </summary>
+        public static class Steel
+        {
+            #region Steel Z-Moves
+            public static ZMove CorkscrewCrash;
+            public static ZMove ZAutotomize;
+            public static ZMove ZGearUp;
+            public static ZMove ZIronDefense;
+            public static ZMove ZKingsShield;
+            public static ZMove ZMetalSound;
+            public static ZMove ZShiftGear;
+            #endregion
+
+            #region Steel Moves
+            public static Move AnchorShot;
+            public static Move Autotomize;
+            public static Move BulletPunch;
+            public static Move DoomDesire;
+            public static Move FlashCannon;
+            public static Move GearGrind;
+            public static Move GearUp;
+            public static Move GyroBall;
+            public static Move HeavySlam;
+            public static Move IronDefense;
+            public static Move IronHead;
+            public static Move IronTail;
+            public static Move KingsShield;
+            public static Move MagnetBomb;
+            public static Move MetalBurst;
+            public static Move MetalClaw;
+            public static Move MetalSound;
+            public static Move MeteorMash;
+            public static Move MirrorShot;
+            public static Move ShiftGear;
+            public static Move SmartStrike;
+            public static Move SteelWing;
+            public static Move SunsteelStrike;
+            #endregion
+
+            #region Steel Constructor
+            static Steel()
+            {
+                #region Z-Steel Constructor
+                CorkscrewCrash = new ZMove("Corkscrew Crash", 100, null, null);
+                ZAutotomize = new ZMove("Z-Autotomize", 0, new Effect[] { Effects.HealingEffects.StatAlterations.ResetStatDrops }, new bool[] { true });
+                ZGearUp = new ZMove("Z-Gear Up", 0, new Effect[] { StatChanges.PositiveStatChanges.SpAtkUp1 }, new bool[] { true });
+                ZIronDefense = new ZMove("Z-Iron Defense", 0, new Effect[] { Effects.HealingEffects.StatAlterations.ResetStatDrops }, new bool[] { true });
+                ZKingsShield = new ZMove("Z-King's Shield", 0, new Effect[] { Effects.HealingEffects.StatAlterations.ResetStatDrops }, new bool[] { true });
+                ZMetalSound = new ZMove("Z-Metal Sound", 0, new Effect[] { StatChanges.PositiveStatChanges.SpAtkUp1 }, new bool[] { true });
+                ZShiftGear = new ZMove("Z-Shift Gear", 0, new Effect[] { Effects.HealingEffects.StatAlterations.ResetStatDrops }, new bool[] { true });
+                #endregion
+
+                #region Steel Constructor
+                AnchorShot = new Move("Anchor Shot", Type.Steel, 80, 1, 20, 'P', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.LegHold }, new bool[] { false }, new ZMove(CorkscrewCrash, 160), 0);
+                Autotomize = new Move("Autotomize", Type.Steel, 0, -1, 15, 'S', new double[] { 1, 1 }, new Effect[] { Effects.GeneralEffects.HalveWeight, StatChanges.PositiveStatChanges.SpdUp2 }, new bool[] { true, true }, ZAutotomize, 0);
+                BulletPunch = new Move("Bullet Punch", Type.Steel, 40, 1, 30, 'P', null, null, null, CorkscrewCrash, 1);
+                DoomDesire = new Move("Doom Desire", Type.Steel, 140, 1, 5, 'M', new double[] { 1, 1 }, new Effect[] { Effects.GeneralEffects.Wait.TwoTurns, Effects.GeneralEffects.DealsDmg }, new bool[] { true, true }, new ZMove(CorkscrewCrash, 200), 0);
+                FlashCannon = new Move("Flash Cannon", Type.Steel, 80, 1, 10, 'M', new double[] { 0.1 }, new Effect[] { StatChanges.NegativeStatChanges.SpDefDwn1 }, new bool[] { false }, new ZMove(CorkscrewCrash, 160), 0);
+                GearGrind = new Move("Gear Grind", Type.Steel, 50, 0.85, 15, 'P', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.HitTwiceOneTurn }, new bool[] { false }, new ZMove(CorkscrewCrash, 180), 0);
+                GearUp = new Move("Gear Up", Type.Steel, 0, -1, 20, 'S', new double[] { 1, 1, 1, 1 }, new Effect[] { Effects.GeneralEffects.HitAllAllies, Flags.hasPlusMinus, StatChanges.PositiveStatChanges.AtkUp1, StatChanges.PositiveStatChanges.SpAtkUp1 }, new bool[] { true, false, false, false }, ZGearUp, 0);
+                GyroBall = new Move("Gyro Ball", Type.Steel, -1, 1, 5, 'P', new double[] { 1 }, new Effect[] { Effects.RareEffects.GyroBall }, new bool[] { false }, new ZMove(CorkscrewCrash, 160), 0);
+                HeavySlam = new Move("Heavy Slam", Type.Steel, -1, 1, 10, 'P', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.HeavierMoreDmg }, new bool[] { false }, new ZMove(CorkscrewCrash, 160), 0);
+                IronDefense = new Move("Iron Defense", Type.Steel, -1, -1, 15, 'S', new double[] { 1 }, new Effect[] { StatChanges.PositiveStatChanges.DefUp2 }, new bool[] { true }, ZIronDefense, 0);
+                IronHead = new Move("Iron Head", Type.Steel, 80, 1, 15, 'P', new double[] { 0.3 }, new Effect[] { Statuses.VolatileStatuses.Flinch }, new bool[] { false }, new ZMove(CorkscrewCrash, 160), 0);
+                IronTail = new Move("Iron Tail", Type.Steel, 100, 75, 15, 'P', new double[] { 0.3 }, new[] { StatChanges.NegativeStatChanges.DefDwn1 }, new bool[] { false }, new ZMove(CorkscrewCrash, 180), 0);
+                KingsShield = new Move("King's Shield", Type.Steel, 0, -1, 10, 'S', new double[] { 1, 1, 1 }, new[] { Effects.RareEffects.KingsShield, Flags.isHitByPhysMv, StatChanges.NegativeStatChanges.AtkDwn2 }, new bool[] { true, true, false }, ZKingsShield, 4);
+                MagnetBomb = new Move("Magnet Bomb", Type.Steel, 60, -1, 20, 'P', null, null, null, new ZMove(CorkscrewCrash, 120), 0);
+                MetalBurst = new Move("Metal Burst", Type.Steel, -1, 1, 10, 'P', new double[] { 1, 1 }, new Effect[] { Effects.RareEffects.MetalBurst }, new bool[] { true }, CorkscrewCrash, 0);
+                MetalClaw = new Move("Metal Claw", Type.Steel, 50, 0.95, 35, 'P', new double[] { 0.1 }, new Effect[] { StatChanges.PositiveStatChanges.AtkUp1 }, new bool[] { true }, CorkscrewCrash, 0);
+                MetalSound = new Move("Metal Sound", Type.Steel, 0, 0.85, 40, 'S', new double[] { 1 }, new Effect[] { StatChanges.NegativeStatChanges.SpDefDwn2 }, new bool[] { false }, ZMetalSound, 0);
+                MeteorMash = new Move("Meteor Mash", Type.Steel, 90, 0.9, 10, 'P', new double[] { 0.2 }, new Effect[] { StatChanges.NegativeStatChanges.AtkDwn1 }, new bool[] { false }, new ZMove(CorkscrewCrash, 175), 0);
+                MirrorShot = new Move("Mirror Shot", Type.Steel, 65, 0.85, 10, 'M', new double[] { 0.3 }, new Effect[] { StatChanges.NegativeStatChanges.AccDwn1 }, new bool[] { false }, new ZMove(CorkscrewCrash, 120), 0);
+                ShiftGear = new Move("Shift Gear", Type.Steel, 0, -1, 10, 'S', new double[] { 1, 1 }, new Effect[] { StatChanges.PositiveStatChanges.AtkUp1, StatChanges.PositiveStatChanges.SpdUp2 }, new bool[] { true, true }, ZShiftGear, 0);
+                SmartStrike = new Move("Smart Strike", Type.Steel, 70, -1, 10, 'P', null, null, null, new ZMove(CorkscrewCrash, 140), 0);
+                SteelWing = new Move("Steel Wing", Type.Steel, 70, 0.9, 25, 'P', new double[] { 0.1 }, new Effect[] { StatChanges.NegativeStatChanges.DefDwn1 }, new bool[] { false }, new ZMove(CorkscrewCrash, 140), 0);
+                SunsteelStrike = new Move("Sunsteel Strike", Type.Steel, 100, 1, 5, 'P', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.Ignore.Ability }, new bool[] { false }, new ZMove(CorkscrewCrash, 180), 0);
+                #endregion
+            }
+            #endregion
+        }
+        #endregion
+
+        #region Fairy
+        /// <summary>
+        /// All Fairy moves
+        /// </summary>
+        public static class Fairy
+        {
+            #region Fairy Z-Moves
+            public static ZMove TwinkleTackle;
+            public static ZMove ZAromaticMist;
+            public static ZMove ZBabyDollEyes;
+            public static ZMove ZCharm;
+            public static ZMove ZCraftyShield;
+            public static ZMove ZFairyLock;
+            public static ZMove ZFloralHealing;
+            public static ZMove ZFlowerShield;
+            public static ZMove ZGeomancy;
+            public static ZMove ZMistyTerrain;
+            public static ZMove ZMoonlight;
+            public static ZMove ZSweetKiss;
+            #endregion
+
+            #region Fairy Moves
+            public static Move AromaticMist;
+            public static Move BabyDollEyes;
+            public static Move Charm;
+            public static Move CraftyShield;
+            public static Move DazzlingGleam;
+            public static Move DisarmingVoice;
+            public static Move DrainingKiss;
+            public static Move FairyLock;
+            public static Move FairyWind;
+            public static Move FleurCannon;
+            public static Move FloralHealing;
+            public static Move FlowerShield;
+            public static Move Geomancy;
+            public static Move LightOfRuin;
+            public static Move MistyTerrain;
+            public static Move Moonblast;
+            public static Move Moonlight;
+            public static Move NaturesMadness;
+            public static Move PlayRough;
+            public static Move SweetKiss;
+            #endregion
+
+            #region Fairy Constructor
+            static Fairy()
+            {
+                #region Z-Fairy Constructor
+                TwinkleTackle = new ZMove("Twinkle Tackle", 100, null, null);
+                ZAromaticMist = new ZMove("Z-Aromatic Mist", 0, new Effect[] { StatChanges.PositiveStatChanges.SpDefUp2 }, new bool[] { true });
+                ZBabyDollEyes = new ZMove("Z-Baby-Doll Eyes", 0, new Effect[] { StatChanges.PositiveStatChanges.DefUp1 }, new bool[] { true });
+                ZCharm = new ZMove("Z-Charm", 0, new Effect[] { StatChanges.PositiveStatChanges.DefUp1 }, new bool[] { true });
+                ZCraftyShield = new ZMove("Z-Crafty Shield", 0, new Effect[] { StatChanges.PositiveStatChanges.SpDefUp1 }, new bool[] { true });
+                ZFairyLock = new ZMove("Z-Fairy Lock", 0, new Effect[] { StatChanges.PositiveStatChanges.DefUp1 }, new bool[] { true });
+                ZFloralHealing = new ZMove("Z-Floral Healing", 0, new Effect[] { Effects.HealingEffects.StatAlterations.ResetStatDrops }, new bool[] { true });
+                ZFlowerShield = new ZMove("Z-Flower Shield", 0, new Effect[] { StatChanges.PositiveStatChanges.DefUp1 }, new bool[] { true });
+                ZGeomancy = new ZMove("Z-Geomancy", 0, new Effect[] { StatChanges.PositiveStatChanges.AtkUp1, StatChanges.PositiveStatChanges.DefUp1, StatChanges.PositiveStatChanges.SpAtkUp1, StatChanges.PositiveStatChanges.SpDefUp1, StatChanges.PositiveStatChanges.SpdUp1 }, new bool[] { true, true, true, true, true });
+                ZMistyTerrain = new ZMove("Z-Misty Terrain", 0, new Effect[] { StatChanges.PositiveStatChanges.SpDefUp1 }, new bool[] { true });
+                ZMoonlight = new ZMove("Z-Moonlight", 0, new Effect[] { Effects.HealingEffects.StatAlterations.ResetStatDrops }, new bool[] { true });
+                ZSweetKiss = new ZMove("Z-Sweet Kiss", 0, new Effect[] { StatChanges.PositiveStatChanges.SpAtkUp1 }, new bool[] { true });
+                #endregion
+
+                #region Fairy Constructor
+                AromaticMist = new Move("Aromatic Mist", Type.Fairy, 0, -1, 20, 'S', new double[] { 1, 1 }, new Effect[] { Effects.GeneralEffects.HitAllAllies, StatChanges.PositiveStatChanges.SpDefUp1 }, new bool[] { false, false }, ZAromaticMist, 0);
+                BabyDollEyes = new Move("Baby-Doll Eyes", Type.Fairy, 0, 1, 30, 'S', new double[] { 1 }, new Effect[] { StatChanges.NegativeStatChanges.AtkDwn1 }, new bool[] { false }, ZBabyDollEyes, 1);
+                Charm = new Move("Charm", Type.Fairy, 0, 1, 20, 'S', new double[] { 1 }, new Effect[] { StatChanges.NegativeStatChanges.AtkDwn2 }, new bool[] { false }, ZCharm, 0);
+                CraftyShield = new Move("Crafty Shield", Type.Fairy, 0, -1, 10, 'S', new double[] { 1 }, new Effect[] { Effects.RareEffects.CraftyShield }, new bool[] { true }, ZCraftyShield, 3);
+                DazzlingGleam = new Move("Dazzling Gleam", Type.Fairy, 80, 1, 10, 'M', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.HitAllFoes }, new bool[] { false }, new ZMove(TwinkleTackle, 160), 0);
+                DisarmingVoice = new Move("Disarming Voice", Type.Fairy, 40, -1, 15, 'M', null, null, null, TwinkleTackle, 0);
+                DrainingKiss = new Move("Draining Kiss", Type.Fairy, 50, 1, 10, 'M', new double[] { 1 }, new Effect[] { Effects.HealingEffects.HPRestore.ThreeQuarterDmgInflicted }, new bool[] { true }, TwinkleTackle, 0);
+                FairyLock = new Move("Fairy Lock", Type.Fairy, 0, -1, 10, 'S', new double[] { 1 }, new Effect[] { Effects.RareEffects.FairyLock }, new bool[] { false }, ZFairyLock, 0);
+                FairyWind = new Move("Fairy Wind", Type.Fairy, 40, 1, 30, 'M', null, null, null, TwinkleTackle, 0);
+                FleurCannon = new Move("Fleur Cannon", Type.Fairy, 130, 0.9, 5, 'M', new double[] { 1 }, new Effect[] { StatChanges.NegativeStatChanges.SpAtkDwn2 }, new bool[] { true }, new ZMove(TwinkleTackle, 195), 0);
+                FloralHealing = new Move("Floral Healing", Type.Fairy, 0, -1, 10, 'S', new double[] { 1 }, new Effect[] { Effects.HealingEffects.HPRestore.FloralHealing }, new bool[] { false }, ZFloralHealing, 0);
+                FlowerShield = new Move("Flower Shield", Type.Fairy, 0, -1, 10, 'S', new double[] { 1, 1, 1 }, new Effect[] { Effects.GeneralEffects.HitAllAdjacent, Flags.ifGrassType, StatChanges.PositiveStatChanges.DefUp1 }, new bool[] { false, false, false }, ZFlowerShield, 0);
+                Geomancy = new Move("Geomancy", Type.Fairy, 0, -1, 10, 'S', new double[] { 1, 1, 1, 1 }, new Effect[] { Effects.GeneralEffects.Charge1Turn, StatChanges.PositiveStatChanges.SpAtkUp2, StatChanges.PositiveStatChanges.SpDefUp2, StatChanges.PositiveStatChanges.SpdUp2 }, new bool[] { true, true, true, true }, ZGeomancy, 0);
+                LightOfRuin = new Move("Light of Ruin", Type.Fairy, 140, 0.9, 5, 'M', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.Recoil.HalfDmgDealt }, new bool[] { true }, new ZMove(TwinkleTackle, 200), 0);
+                MistyTerrain = new Move("Misty Terrain", Type.Fairy, 0, -1, 10, 'S', new double[] { 1 }, new Effect[] { Effects.RareEffects.Terrain.Fairy }, new bool[] { false }, ZMistyTerrain, 0);
+                Moonblast = new Move("Moonblast", Type.Fairy, 95, 1, 15, 'M', new double[] { 0.3 }, new Effect[] { StatChanges.NegativeStatChanges.SpAtkDwn1 }, new bool[] { false }, new ZMove(TwinkleTackle, 175), 0);
+                Moonlight = new Move("Moonlight", Type.Fairy, 0, -1, 5, 'S', new double[] { 1 }, new Effect[] { Effects.HealingEffects.HPRestore.WeatherBasedHPRestore }, new bool[] { true }, ZMoonlight, 0);
+                NaturesMadness = new Move("Nature's Madness", Type.Fairy, 0, 0.9, 10, 'M', new double[] { 1 }, new Effect[] { Effects.GeneralEffects.DoesHalfTargetHPDmg }, new bool[] { false }, TwinkleTackle, 0);
+                PlayRough = new Move("Play Rough", Type.Fairy, 90, 0.9, 10, 'P', new double[] { 0.1 }, new Effect[] { StatChanges.NegativeStatChanges.AtkDwn1 }, new bool[] { false }, new ZMove(TwinkleTackle, 175), 0);
+                SweetKiss = new Move("Sweet Kiss", Type.Fairy, 0, 0.75, 10, 'S', new double[] { 1 }, new Effect[] { Statuses.VolatileStatuses.Confused }, new bool[] { false }, ZSweetKiss, 0);
+                #endregion
             }
             #endregion
         }

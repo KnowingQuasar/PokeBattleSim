@@ -8,6 +8,35 @@
     {
         #region Members
         /// <summary>
+        /// The name of the stat
+        /// </summary>
+        string name;
+
+        /// <summary>
+        /// The shorthand name of the stat
+        /// </summary>
+        string shortName;
+        #endregion
+
+        #region Stat Constructor
+        public Stat(string name, string sName)
+        {
+            this.name = name;
+            shortName = sName;
+        }
+        #endregion
+    }
+    #endregion
+
+    public class PkmnStat
+    {
+        #region Members
+        /// <summary>
+        /// The numerical value of the stat at it's base for the specific pkmn
+        /// </summary>
+        double baseValue;
+
+        /// <summary>
         /// Default stage a stat rests at
         /// </summary>
         const int default_stage = 0;
@@ -21,33 +50,62 @@
         /// The minimum stage a stat can reach
         /// </summary>
         static int min_stage = -6;
-        
-        /// <summary>
-        /// The name of the stat
-        /// </summary>
-        string name;
-
-        /// <summary>
-        /// The shorthand name of the stat
-        /// </summary>
-        string shortName;
 
         /// <summary>
         /// The stage the stat is currently at
         /// </summary>
         int stage;
+
+        /// <summary>
+        /// The stat being represented
+        /// </summary>
+        Stat stat;
+
+        /// <summary>
+        /// The numerical value of the stat after level, IV, and EV application
+        /// </summary>
+        int value;
         #endregion
 
-        #region Stat Constructor
-        public Stat(string name, string sName)
+        #region Constructor
+        public PkmnStat(double bV, Stat st)
         {
-            this.name = name;
-            shortName = sName;
-            stage = default_stage;
+            baseValue = bV;
+            stat = st;
+        }
+        #endregion
+
+        #region Functions
+        bool CalcValue(TeamMember pkmn, PkmnStat stat)
+        {
+            return true;
         }
         #endregion
     }
-    #endregion
+
+    public class IV
+    {
+        Stat stat;
+        int value;
+
+        public IV(Stat s, int val)
+        {
+            stat = s;
+            value = val;
+        }
+    }
+
+    public class EV
+    {
+        Stat stat;
+        int value;
+
+        public EV(Stat s, int val)
+        {
+            stat = s;
+            value = val;
+        }
+    }
 
     #region Stats
     /// <summary>
@@ -72,6 +130,10 @@
         public static Stat SpAtk;
         public static Stat Spd;
         public static Stat SpDef;
+        /// <summary>
+        /// The Pokemon's weight
+        /// </summary>
+        public static Stat Weight;
         #endregion
 
         #region Definitions
@@ -87,6 +149,7 @@
             SpAtk = new Stat("Special Attack", "Sp. Atk");
             Spd = new Stat("Speed", "Spd");
             SpDef = new Stat("Special Defense", "Sp. Def");
+            Weight = new Stat("Weight", "Wgt");
         }
         #endregion
     }

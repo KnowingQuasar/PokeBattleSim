@@ -105,24 +105,24 @@
         #region Types Constructor
         static Type()
         {
-            Bug = new BasicType("Bug", new BasicType[] { Fire, Flying, Rock }, new BasicType[] { Fighting, Grass, Ground }, new BasicType[] { Psychic, Grass, Dark }, new BasicType[] { Fighting, Fire, Flying, Ghost, Poison, Steel, Fairy }, new BasicType[] { }, new BasicType[] { });
-            Dark = new BasicType("Dark", new BasicType[] { Bug, Fairy, Fighting }, new BasicType[] { Dark, Ghost }, new BasicType[] { Ghost, Psychic }, new BasicType[] { Dark, Fairy, Fighting }, new BasicType[] { }, new BasicType[] { Psychic });
-            Dragon = new BasicType("Dragon", new BasicType[] { Dragon, Ice, Fairy }, new BasicType[] { Electric, Fire, Grass, Water }, new BasicType[] { Dragon }, new BasicType[] { Steel }, new BasicType[] { Fairy }, new BasicType[] { });
-            Electric = new BasicType("Electric", new BasicType[] { Ground }, new BasicType[] { Electric, Flying, Steel }, new BasicType[] { Flying, Water }, new BasicType[] { Dragon, Electric, Grass }, new BasicType[] { Ground }, new BasicType[] { });
-            Fairy = new BasicType("Fairy", new BasicType[] { Poison, Steel }, new BasicType[] { Bug, Dark, Fighting }, new BasicType[] { Dark, Dragon, Fighting }, new BasicType[] { Fire, Poison, Steel }, new BasicType[] { }, new BasicType[] { Dragon });
-            Fighting = new BasicType("Fighting", new BasicType[] { Fairy, Flying, Psychic }, new BasicType[] { Bug, Dark, Rock }, new BasicType[] { Dark, Ice, Normal, Rock, Steel }, new BasicType[] { Bug, Flying, Fairy, Poison, Psychic }, new BasicType[] { Ghost }, new BasicType[] { });
-            Fire = new BasicType("Fire", new BasicType[] { Ground, Rock, Water }, new BasicType[] { Bug, Fairy, Fire, Grass, Ice, Steel }, new BasicType[] { Bug, Grass, Ice, Steel }, new BasicType[] { Dragon, Fire, Rock, Water }, new BasicType[] { }, new BasicType[] { });
-            Flying = new BasicType("Flying", new BasicType[] { Electric, Ice, Rock }, new BasicType[] { Bug, Fighting, Grass }, new BasicType[] { Bug, Fighting, Grass }, new BasicType[] { Electric, Rock, Steel }, new BasicType[] { }, new BasicType[] { Ground });
-            Ghost = new BasicType("Ghost", new BasicType[] { Ghost, Dark }, new BasicType[] { Bug, Poison }, new BasicType[] { Ghost, Psychic }, new BasicType[] { Dark }, new BasicType[] { Normal }, new BasicType[] { Normal, Fighting });
-            Grass = new BasicType("Grass", new BasicType[] { Bug, Fire, Flying, Ice, Poison }, new BasicType[] { Electric, Grass, Ground, Water }, new BasicType[] { Ground, Rock, Water }, new BasicType[] { Bug, Dragon, Fire, Flying, Grass, Poison, Steel }, new BasicType[] { }, new BasicType[] { });
-            Ground = new BasicType("Ground", new BasicType[] { Grass, Ice, Water }, new BasicType[] { Poison, Rock }, new BasicType[] { Electric, Fire, Poison, Rock, Steel }, new BasicType[] { Bug, Grass }, new BasicType[] { Flying }, new BasicType[] { Electric });
-            Ice = new BasicType("Ice", new BasicType[] { Fire, Fighting, Steel, Rock }, new BasicType[] { Ice }, new BasicType[] { Dragon, Flying, Grass, Ground }, new BasicType[] { Fire, Ice, Steel, Water }, new BasicType[] { }, new BasicType[] { });
-            Normal = new BasicType("Normal", new BasicType[] { Fighting }, new BasicType[] { }, new BasicType[] { }, new BasicType[] { Rock, Steel }, new BasicType[] { Ghost }, new BasicType[] { Ghost });
-            Poison = new BasicType("Poison", new BasicType[] { Ground, Psychic }, new BasicType[] { Bug, Fairy, Fighting, Grass, Poison }, new BasicType[] { Fairy, Grass }, new BasicType[] { Ghost, Ground, Poison, Rock }, new BasicType[] { Steel }, new BasicType[] { });
-            Psychic = new BasicType("Psychic", new BasicType[] { Dark, Ghost, Bug }, new BasicType[] { Fighting, Psychic }, new BasicType[] { Fighting, Poison }, new BasicType[] { Psychic, Steel }, new BasicType[] { Dark }, new BasicType[] { });
-            Rock = new BasicType("Rock", new BasicType[] { Fighting, Grass, Rock, Steel, Water }, new BasicType[] { Fire, Flying, Normal, Poison }, new BasicType[] { Bug, Fire, Flying, Ice }, new BasicType[] { Fighting, Ground, Steel }, new BasicType[] { }, new BasicType[] { });
-            Steel = new BasicType("Steel", new BasicType[] { Fighting, Fire, Ground }, new BasicType[] { Bug, Dragon, Fairy, Flying, Grass, Ice, Normal, Psychic, Rock, Steel }, new BasicType[] { Fairy, Ice, Rock }, new BasicType[] { Electric, Fire, Steel, Water }, new BasicType[] { }, new BasicType[] { Poison });
-            Water = new BasicType("Water", new BasicType[] { Electric, Grass }, new BasicType[] { Water, Ice, Fire, Steel }, new BasicType[] { Fire, Ground, Rock }, new BasicType[] { Dragon, Grass, Water }, new BasicType[] { }, new BasicType[] { });
+            Normal = new BasicType("Normal", new int[] { 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, -42, 0, 0, 0, 0 });
+            Fire = new BasicType("Fire", new int[] { 0, -1, 1, 0, -1, -1, 0, 0, 1, 0, 0, -1, 1, 0, 0, 0, -1, -1 });
+            Water = new BasicType("Water", new int[] { 0, -1, -1, 1, 1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0 });
+            Electric = new BasicType("Electric", new int[] { 0, 0, 0, -1, 0, 0, 0, 0, 1, -1, 0, 0, 0, 0, 0, 0, -1, 0 });
+            Grass = new BasicType("Grass", new int[] { 0, 1, -1, -1, -1, 1, 0, 1, -1, 1, 0, 1, 0, 0, 0, 0, 0, 0 });
+            Ice = new BasicType("Ice", new int[] { 0, 1, 0, 0, 0, -1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0 });
+            Fighting = new BasicType("Fighting", new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, -1, -1, 0, 0, -1, 0, 1 });
+            Poison = new BasicType("Poison", new int[] { 0, 0, 0, 0, -1, 0, -1, -1, 1, 0, 1, -1, 0, 0, 0, 0, 0, -1 });
+            Ground = new BasicType("Ground", new int[] { 0, 0, 1, -42, 1, 1, 0, -1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0 });
+            Flying = new BasicType("Flying", new int[] { 0, 0, 0, 1, -1, 1, -1, 0, -42, 0, 0, -1, 1, 0, 0, 0, 0, 0 });
+            Psychic = new BasicType("Psychic", new int[] { 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, -1, 1, 0, 1, 0, 1, 0, 0 });
+            Bug = new BasicType("Bug", new int[] { 0, 1, 0, 0, -1, 0, -1, 0, -1, 1, 0, 0, 1, 0, 0, 0, 0, 0 });
+            Rock = new BasicType("Rock", new int[] { -1, -1, 1, 0, 1, 0, 1, -1, 1, -1, 0, 0, 0, 0, 0, 0, 1, 0 });
+            Ghost = new BasicType("Ghost", new int[] { -42, 0, 0, 0, 0, 0, -42, -1, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0 });
+            Dragon = new BasicType("Dragon", new int[] { 0, -1, -1, -1, -1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1 });
+            Dark = new BasicType("Dark", new int[] { 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, -42, 1, 0, -1, 0, -1, 0, 1 });
+            Steel = new BasicType("Steel", new int[] { -1, 1, 0, 0, -1, -1, 1, -42, 1, -1, -1, -1, -1, 0, -1, 0, -1, -1 });
+            Fairy = new BasicType("Fairy", new int[] { 0, 0, 0, 0, 0, 0, -1, 1, 0, 0, 0, -1, 0, 0, -42, -1, 1, 0 });
         }
         #endregion
     }
