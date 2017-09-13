@@ -17,6 +17,8 @@ namespace PokemonBattleSim
             InitializeComponent();
             InitTitles();
         }
+        [System.Runtime.InteropServices.DllImport("kernel32.dll")]
+        private static extern bool AllocConsole();
 
         private void InitTitles()
         {
